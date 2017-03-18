@@ -2,9 +2,9 @@
 
 [//]: # (Image References)
 
-[distribution]: ./writeup_report_images/Distribution_of_traffic_signs "Distribution of traffic signs in the training set"
-[top5]: ./writeup_report_images/top_5 "Top 5 classes in training set"
-[flop5]: ./writeup_report_images/flop_5 "The 5 classes in training set with the lowest occurence"
+[distribution]: ./writeup_report_images/Distribution_of_traffic_signs.png "Distribution of traffic signs in the training set"
+[top5]: ./writeup_report_images/top_5.png "Top 5 classes in training set"
+[flop5]: ./writeup_report_images/flop_5.png "The 5 classes in training set with the lowest occurence"
 [sign1]: ./new_images/id_1.jpeg "Traffic Sign 1"
 [sign2]: ./new_images/id_2.jpg "Traffic Sign 2"
 [sign3]: ./new_images/id_13.jpg "Traffic Sign 3"
@@ -64,6 +64,7 @@ First, I provide a bar chart which shows the distribution of the unique classes 
 You can see that the images are not distributed equally. The occurance of some traffic signs is more than 10 times higher than the occurence of the sign *speed limit (20 km/h)*. The sign with the highest occurence is *speed limit (50 km/h)*.
 
 ![Top 5 traffic signs][top5]
+
 This images shows the top 5 signs that are present in the data set. The signs are:
 - Id 2: Speed limit (50 km/h)
 - Id 1: Speed limit (30 km/h)
@@ -72,6 +73,7 @@ This images shows the top 5 signs that are present in the data set. The signs ar
 - Id 38: Keep right
 
 ![The 5 classes in training set with the lowest occurence][flop5]
+
 This images shows the 5 signs have the lowest occurence in the test set. 
 - Id 0: Speed limit (20 km/h)
 - Id 37: Go straight or left
