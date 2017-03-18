@@ -2,9 +2,9 @@
 
 [//]: # (Image References)
 
-[distribution]: ./writeup_report_images/Distribution_of_traffic_signs "Distribution of traffic signs in the training set"
-[top5]: ./writeup_report_images/top_5 "Top 5 classes in training set"
-[flop5]: ./writeup_report_images/flop_5 "The 5 classes in training set with the lowest occurence"
+[distribution]: ./writeup_report_images/Distribution_of_traffic_signs.png "Distribution of traffic signs in the training set"
+[top5]: ./writeup_report_images/top_5.png "Top 5 classes in training set"
+[flop5]: ./writeup_report_images/flop_5.png "The 5 classes in training set with the lowest occurence"
 [sign1]: ./new_images/id_1.jpeg "Traffic Sign 1"
 [sign2]: ./new_images/id_2.jpg "Traffic Sign 2"
 [sign3]: ./new_images/id_13.jpg "Traffic Sign 3"
