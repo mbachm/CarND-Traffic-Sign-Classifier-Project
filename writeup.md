@@ -46,10 +46,10 @@ The provided dataset has the following structure:
 
 | Dataset                                  | Description | 
 |:----------------------------------------:|:-----------:| 
-| Size of training set                     | 34799       |
-| Size of validation set                   |  |
-| Size of testing set                      | 12630       |
-| Number of unique classes/labels          | 43          |
+| Size of training set                     | 34799     	 |
+| Size of validation set                   | 4410  	   	 |
+| Size of testing set                      | 12630     	 |
+| Number of unique classes/labels          | 43        	 |
 | Original shape of the images in the sets | (32, 32, 3) |
 
 You can find the code for this section in the second code cell. The first code cell just load the provided data sets.
@@ -134,10 +134,10 @@ To train the model, I used an AdamOptimizer with a learning rate of `rate = 0.00
 
 The folling code cell defines the `evaluate`function. I used the one provided from the LeNet session, so I won't explain this part.
 
-The thirteenth code cell contains my training function. First, I shuffle my normalized training set and the corresponding y-label. Afterwards, the model is trained with the provided batch size. Afterwards, the accuracy is calculated with the `evaluate` function from above. This is done for 400 epochs, which you can see in the printout of the code cell. The validation accuracy of the last epoch is 0.948.
+The thirteenth code cell contains my training function. First, I shuffle my normalized training set and the corresponding y-label. Afterwards, the model is trained with the provided batch size. Afterwards, the accuracy is calculated with the `evaluate` function from above. This is done for 400 epochs, which you can see in the printout of the code cell. The validation accuracy of the last epoch is 0.954.
 
 ####2.4. Solution Approach
-In the last code cell of the section *Step 2: Design and Test a Model Architecture* you can see the calculated accuracy of the given test set. My network was able to gain a accuracy of 93,4%.
+In the last code cell of the section *Step 2: Design and Test a Model Architecture* you can see the calculated accuracy of the given test set. My network was able to gain a accuracy of 93,3%.
 
 
 ###3. Test a Model on New Images
@@ -154,77 +154,26 @@ I acquired 5 new images from the internet. You can see the resized and grayscale
 | 17 		| No entry 				| ![Traffic sign 4][sign4]	| ![Traffic sign 4][graySign4]	|
 | 27 		| Pedestrians			| ![Traffic sign 5][sign5]	| ![Traffic sign 5][graySign5]	|
 
+Classification diffuculties:
+
+* The first image might be difficult to classify because it is diffuse.
+* The second image might be difficult to classify because it is diffuse and a lot of space is used for surroundings in the image.
+* The first image might be difficult to classify because it has a different angle and a lot of space is used for surroundings in the image.
+* The first image might be difficult to classify because it is diffuse.
+* The first image might be difficult to classify because it has a different angle. Furthermore, you can see that the grayscaling for this image did not work probably.
+
 ####3.2. Performance on New Images
 
-
+The performance of the network was not so good, only 20%, which you can see in the eighteenth code cell. It only recognized image 1, the speed limit (50 km/h). And only the yield image had it's place in the top 5. The other 3 images are not listed in the top 5 probabilities. You can see the exact results below.
 
 ####3.3. Model Certainty - Softmax Probabilities
 
+| Image ID 	| Top 5 probabilities															 | Top 5 sign Id	|
+|:---------:|:------------------------------------------------------------------------------:|:----------------:|
+| 1  		| 6.08867168e-01, 3.91115785e-01, 1.69556497e-05, 8.25644886e-10, 1.50459180e-18 | 1 39 38 12  6	|
+| 2  		| 1.00000000e+00, 1.59616125e-08, 2.45416944e-16, 3.89394917e-24, 9.13406558e-27 | 12  9  7 21  1 	|
+| 13 		| 1.00000000e+00, 3.96041120e-20, 1.44541718e-20, 5.34317559e-21, 6.62525378e-29 | 9 13  5 31 12	|
+| 17 		| 1.00000000e+00, 5.86736931e-13, 1.68904233e-16, 6.69159631e-22, 1.51830014e-22 | 35 38 20 13  6 	|
+| 27 		| 1.00000000e+00, 2.33478406e-15, 3.44093602e-17, 0.00000000e+00, 0.00000000e+00 | 39 12 31  0  1 	|
 
-
-####5. Describe the approach taken for finding a solution. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
-
-The code for calculating the accuracy of the model is located in the ninth cell of the Ipython notebook.
-
-My final model results were:
-* training set accuracy of ?
-* validation set accuracy of ? 
-* test set accuracy of ?
-
-If an iterative approach was chosen:
-* What was the first architecture that was tried and why was it chosen?
-* What were some problems with the initial architecture?
-* How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to over fitting or under fitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
-* Which parameters were tuned? How were they adjusted and why?
-* What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?
-
-If a well known architecture was chosen:
-* What architecture was chosen?
-* Why did you believe it would be relevant to the traffic sign application?
-* How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
- 
-
-###Test a Model on New Images
-
-####1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
-
-Here are five German traffic signs that I found on the web:
-
-![alt text][image4] ![alt text][image5] ![alt text][image6] 
-![alt text][image7] ![alt text][image8]
-
-The first image might be difficult to classify because ...
-
-####2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. Identify where in your code predictions were made. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
-
-The code for making predictions on my final model is located in the tenth cell of the Ipython notebook.
-
-Here are the results of the prediction:
-
-| Image			        |     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| Stop Sign      		| Stop sign   									| 
-| U-turn     			| U-turn 										|
-| Yield					| Yield											|
-| 100 km/h	      		| Bumpy Road					 				|
-| Slippery Road			| Slippery Road      							|
-
-
-The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of ...
-
-####3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction and identify where in your code softmax probabilities were outputted. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
-
-The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
-
-For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
-
-| Probability         	|     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| .60         			| Stop sign   									| 
-| .20     				| U-turn 										|
-| .05					| Yield											|
-| .04	      			| Bumpy Road					 				|
-| .01				    | Slippery Road      							|
-
-
-For the second image ... 
+For the first image the model is relatively sure about it's predictions. For all other images, it is sure to take the wrong sign.
