@@ -1,2 +1,4 @@
-model_checkpoint_path: "final_model"
+model_checkpoint_path: "second_submission"
 all_model_checkpoint_paths: "final_model"
+all_model_checkpoint_paths: "test"
+all_model_checkpoint_paths: "second_submission"
