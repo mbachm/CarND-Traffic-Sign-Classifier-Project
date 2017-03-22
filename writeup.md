@@ -167,6 +167,7 @@ Classification diffuculties:
 ####3.2. Performance on New Images
 
 The performance of the network was not so good, only 20%, which you can see in the eighteenth code cell. It only recognized image 1, the speed limit (50 km/h). And only the yield image had it's place in the top 5. The other 3 images are not listed in the top 5 probabilities. You can see the exact results below.
+The accuracy on the captured images is 20% while it was 93,3% on the testing set thus it seems the model is overfitting or the trained model is not very robust.
 
 ####3.3. Model Certainty - Softmax Probabilities
 
@@ -179,3 +180,4 @@ The performance of the network was not so good, only 20%, which you can see in t
 | 27 		| 1.00000000e+00, 2.33478406e-15, 3.44093602e-17, 0.00000000e+00, 0.00000000e+00 | 39 12 31  0  1 	|
 
 For the first image the model is relatively sure about it's predictions. For all other images, it is sure to take the wrong sign.
+
