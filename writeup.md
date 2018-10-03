@@ -4,7 +4,7 @@
 
 [distribution]: ./writeup_report_images/Distribution_of_traffic_signs.png "Distribution of traffic signs in the training set"
 [top5]: ./writeup_report_images/top_5.png "Top 5 classes in training set"
-[flop5]: ./writeup_report_images/flop_5.png "The 5 classes in training set with the lowest occurence"
+[flop5]: ./writeup_report_images/flop_5.png "The 5 classes in training set with the lowest occurrence"
 [sign1]: ./new_images/id_1.jpeg "Traffic Sign 1"
 [sign2]: ./new_images/id_2.jpg "Traffic Sign 2"
 [sign3]: ./new_images/id_13.jpg "Traffic Sign 3"
@@ -61,7 +61,7 @@ First, I provide a bar chart which shows the distribution of the unique classes 
 
 ![Distribution of the unique classes in the training set][distribution]
 
-You can see that the images are not distributed equally. The occurance of some traffic signs is more than 10 times higher than the occurence of the sign *speed limit (20 km/h)*. The sign with the highest occurence is *speed limit (50 km/h)*.
+You can see that the images are not distributed equally. The occurrence of some traffic signs is more than 10 times higher than the occurrence of the sign *speed limit (20 km/h)*. The sign with the highest occurrence is *speed limit (50 km/h)*.
 
 ![Top 5 traffic signs][top5]
 
@@ -72,9 +72,9 @@ This images shows the top 5 signs that are present in the data set. The signs ar
 - Id 12: Priority road
 - Id 38: Keep right
 
-![The 5 classes in training set with the lowest occurence][flop5]
+![The 5 classes in training set with the lowest occurrence][flop5]
 
-This images shows the 5 signs have the lowest occurence in the test set. 
+This images shows the 5 signs have the lowest occurrence in the test set. 
 - Id 0: Speed limit (20 km/h)
 - Id 37: Go straight or left
 - Id 19: Dangerous curve to the left
@@ -89,7 +89,7 @@ You can find the code for the bars in the fifth and sixth code cell. Furthermore
 ####2.1. Preprocessing
 
 You can find the preprocessing under the headline *Pre-process the Data Set (normalization, grayscale, etc.)*, the seventh code cell in the jupyter notebook.
-The preprocessing for the sets is done in the function `normalize_and_greyscale_image_set`. First, it converts the RGB image into a greyscale image. This is done beacuse I wanted my network to focus on the shape of the traffic sign and not the color it has. Second, the preprocessing normalizes the images with the function `normalize_greyscaled_Image`. This way I want to achieve that my NN focus on the underlying distributions/traffic sign shape.
+The preprocessing for the sets is done in the function `normalize_and_greyscale_image_set`. First, it converts the RGB image into a greyscale image. This is done because I wanted my network to focus on the shape of the traffic sign and not the color it has. Second, the preprocessing normalizes the images with the function `normalize_greyscaled_Image`. This way I want to achieve that my NN focus on the underlying distributions/traffic sign shape.
 Afterwards, I add an additional dimension to the image. This is done to get it in the shape (32, 32, 1), as after the grayscaling of the image with `cv2.cvtColor`the dimension is removed.
 
 Right below the functions you can see that my code is converting the images shape from (32, 32, 3) to (32, 32, 1) for all given sets.
@@ -130,7 +130,7 @@ Below you can see the layers of my final model:
 
 ####2.3. Model Training
 
-The choosen hyper parameters are `EPOCHS = 400` and `BATCH_SIZE = 128`. With 400 epochs I was able to gain a good validation and test result for my trained network. I tried out 500 epochs, but my network did not perform better. With less epochs (200, 250, 300 and 350), I was not able to achieve a good validation result. I already have good experiences with a batch size of 128, so I didn't change it. They can also be found in the tenth code cell.
+The chosen hyper parameters are `EPOCHS = 400` and `BATCH_SIZE = 128`. With 400 epochs I was able to gain a good validation and test result for my trained network. I tried out 500 epochs, but my network did not perform better. With less epochs (200, 250, 300 and 350), I was not able to achieve a good validation result. I already have good experiences with a batch size of 128, so I didn't change it. They can also be found in the tenth code cell.
 
 To train the model, I used an AdamOptimizer with a learning rate of `rate = 0.00008` (see eleventh code cell). I tried out many learning rates from 0.001 to 0.00001, but the rate 0.00008 did perform best in my tests. In the same cell, you also see that I used `softmax_cross_entropy_with_logits` and `reduce_mean` functions from Tensorflow to define my loss function, which the AdamOptimizer uses.
 
@@ -156,7 +156,7 @@ I acquired 5 new images from the internet. You can see the resized and grayscale
 | 17 		| No entry 				| ![Traffic sign 4][sign4]	| ![Traffic sign 4][graySign4]	|
 | 27 		| Pedestrians			| ![Traffic sign 5][sign5]	| ![Traffic sign 5][graySign5]	|
 
-Classification diffuculties:
+Classification difficulties:
 
 * The first image might be difficult to classify because it is diffuse.
 * The second image might be difficult to classify because it is diffuse and a lot of space is used for surroundings in the image.
